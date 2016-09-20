@@ -18,7 +18,7 @@ public class MasterCard {
 		if (number.charAt(0) == 5){
 			if (number.charAt(1) == 1 | number.charAt(1) == 2 | number.charAt(1) == 3 | number.charAt(1) == 4 | number.charAt(1) == 5){
 				return number;
-			}
+			}/////
 		
 		}
 		return "Error";
