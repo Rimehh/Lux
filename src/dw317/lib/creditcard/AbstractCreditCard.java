@@ -23,7 +23,7 @@ public abstract class AbstractCreditCard implements CreditCard {
 	}
 
 	/**
-	 * 
+	 * jghjg
 	 */
 
 	/*
