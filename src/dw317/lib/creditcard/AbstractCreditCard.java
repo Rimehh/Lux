@@ -1,69 +1,90 @@
 /**
  * 
  */
+package dw317.lib.creditcard;
 
 /**
- * @author 1241616
+ * @author Sebastian
  *
  */
-public abstract class AbstractCreditCard {
-	
-	private static final long serialVersionUID = 42031768817L;
-	private final cardType CardType;
+public abstract class AbstractCreditCard implements CreditCard {
+	private static final long serialVersionUID = 42031768871L;
+	private final CardType cardType;
 	private final String number;
-	
-	public AbstractCreditCard (CardType cardType, String number) throws IllegalArgumentException
-	{
-		//@TODO: call luhn validation
-		
-	}
-	
-	
-	//@Override
-	public boolean equals (Object obj)
-	{
 
-		//same class
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (obj.getClass() != this.getClass())
-			return false;
-		AbstractCreditCard castCC = (AbstractCreditCard) obj;
-
-		/*type and number are equal*/
-		if (
-			this.getType().equalsIgnoreCase(castCC.getType())
-			&&
-			this.getNumber().equalsIgnoreCase(castCC.getNumber())
-			)
-		return true;
-		
-					
-		
+	/**
+	 * @param cardType
+	 * @param number
+	 */
+	public AbstractCreditCard(CardType cardType, String number) {
+		super();
+		this.cardType = cardType;
+		this.number = number;
 	}
 
+	/**
+	 * 
+	 */
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AbstractCreditCard2 [cardType=" + cardType + ", numbe"
+				+ "r=" + number + "]";
+	}
+
+	/**
+	 * @return the cardType
+	 */
+	public CardType getType() {
+		return cardType;
+	}
+
+	/**
+	 * @return the number
+	 */
 	public String getNumber() {
 		return number;
 	}
 
-	public cardType getType() {
-		return CardType;
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cardType == null) ? 0 : 
+			cardType.hashCode());
+		result = prime * result + ((number == null) ? 0 : 
+			number.hashCode());
+		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof AbstractCreditCard2))
+			return false;
+		AbstractCreditCard2 other = (AbstractCreditCard2) obj;
+		if (cardType != other.cardType)
+			return false;
+		if (number == null) {
+			if (other.number != null)
+				return false;
+		} else if (!number.equals(other.number))
+			return false;
+		return true;
+	}
 
-	public String toString()
-	{
-		return cardtype + "*" + number;
-		
-	}
-	
-	private String validateLuhnAlgorithm(String number) throws IllegalArgumentException
-	{
-		number.length()
-		if ( (number.charAt(number.length()-1)) ==  
-	}
-	
 }
