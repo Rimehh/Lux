@@ -1,27 +1,51 @@
+/**
+ * 
+ */
 package dw317.lib.creditcard;
 
+/**
+ * @author Sebastian
+ *
+ */
+public final class MasterCard extends AbstractCreditCard2{
+	private static final long serialVersionUID = 42031768871L;
 
-public class MasterCard {
-
-	private final String serialVersionUID = "420317768871L";
-	
-	
-	public MasterCard(String number) throws IllegalArgumentException {
+	/**
+	 * 
+	 */
+	public MasterCard(String number) {
+		// TODO Auto-generated constructor stub
 		super(CardType.MASTERCARD, validateNumber(number));
 	}
-
-
-	private static String validateNumber(String number) throws IllegalArgumentException {
-		if (number.length() != 16){
-			return "Invalid Credit card number -- Must consist of 16 numbers";
-		} 
-		if (number.charAt(0) == 5){
-			if (number.charAt(1) == 1 | number.charAt(1) == 2 | number.charAt(1) == 3 | number.charAt(1) == 4 | number.charAt(1) == 5){
-				return number;
-			}/////
-		
+	
+	private static String validateNumber(String number){
+		if (checkStartingDigits(number) || number.length()!=16){
+			throw new IllegalArgumentException("INVALID NUMBER"); 
 		}
-		return "Error";
-		
+		return number;
+	}
+	private static boolean checkStartingDigits(String number){
+		boolean condition = true;
+		String firstTwoDigits = number.substring(0, 2);
+		switch (firstTwoDigits){
+		case "51":
+			condition = false;
+			break;
+		case "52":
+			condition = false;
+			break;
+		case "53":
+			condition = false;
+			break;
+		case "54":
+			condition = false;
+			break;
+		case "55":
+			condition = false;
+			break;
+		default:
+			condition = true;
+		}
+		return condition;
 	}
 }
