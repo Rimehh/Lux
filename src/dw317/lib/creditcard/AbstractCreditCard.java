@@ -86,5 +86,8 @@ public abstract class AbstractCreditCard implements CreditCard {
 			return false;
 		return true;
 	}
+	private String validateLuhnAlgorithm(String number){
+		
+	}
 
 }
