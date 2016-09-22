@@ -8,9 +8,9 @@ package dw317.lib.creditcard;
  *
  */
 public abstract class AbstractCreditCard implements CreditCard {
-	private static final long serialVersionUID = 42031768871L;
-	private final CardType cardType;
-	private final String number;
+	protected static final long serialVersionUID = 42031768871L;
+	protected final CardType cardType;
+	protected final String number;
 
 	/**
 	 * @param cardType
