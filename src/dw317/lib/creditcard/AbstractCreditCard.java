@@ -74,9 +74,9 @@ public abstract class AbstractCreditCard implements CreditCard {
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof AbstractCreditCard2))
+		if (!(obj instanceof AbstractCreditCard))
 			return false;
-		AbstractCreditCard2 other = (AbstractCreditCard2) obj;
+		AbstractCreditCard other = (AbstractCreditCard) obj;
 		if (cardType != other.cardType)
 			return false;
 		if (number == null) {
